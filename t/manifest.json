@@ -1,0 +1,41 @@
+{
+	//required
+	"manifest_version": 2,
+
+	"name":"FootLocker Autobuy",
+	"version": "0.0.1",
+	//recommended
+	"icons": {
+		"128": "fl.png"
+	},
+	"description": "This extension buys stuff on footlocker automatically",
+
+	"page_action": {
+		"default_icon":"fl.png",
+		"default_name": "footlocker autobuy"
+	},
+
+	"permissions":[
+		"http://*/",
+		"cookies",
+		"https://*/",
+		"bookmarks",
+		"tabs",
+		"unlimitedStorage",
+		"history",
+		"notifications"],
+	"content_scripts":[{
+		"matches": ["http://*.footlocker.nl/*", "https://*.footlocker.nl/*"],
+		"js": ["main.dev.js"]//"require.min.js", "jquery.js", "alertMsg.js", 
+	}
+	],
+
+	"background": {
+		"scripts": ["background.js"]
+	},
+	
+	"web_accessible_resources":[
+		"jquery.min.map",
+		"config.json"
+	]
+}
